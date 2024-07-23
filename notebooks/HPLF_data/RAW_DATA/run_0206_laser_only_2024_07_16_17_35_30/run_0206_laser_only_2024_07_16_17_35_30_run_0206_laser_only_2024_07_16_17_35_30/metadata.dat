@@ -1,0 +1,352 @@
+city_ctrl:
+  D5:
+    name: D5
+    channel: OB1
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.1Hz - 3523683200
+    delay: 5000000.0us - 1761855000
+    delay_rel: 0us - 0
+    width: 20us - 7047
+  D25:
+    name: D25
+    channel: OB2
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.1Hz - 3523683200
+    delay: 4999630.0us - 1761724622
+    delay_rel: -370.0us - -130377
+    width: 20us - 7047
+  DAM:
+    name: DAM
+    channel: OB3
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 4999720.0us - 1761756336
+    delay_rel: -280.0us - -98663
+    width: 50us - 17618
+  DAM_Presimmer:
+    name: DAM_Presimmer
+    channel: OB4
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 0.0us - 0
+    delay_rel: -5000000.0us - -1761855000
+    width: 50000us - 17618550
+  ModBox:
+    name: ModBox
+    channel: OA1
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.1Hz - 3523683200
+    delay: 5000259.670071999us - 1761946500
+    delay_rel: 259.6700719986111us - 91500
+    width: 20us - 7047
+  Pockels:
+    name: Pockels
+    channel: OA2
+    output_state: ON
+    burst_state: '1'
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 5000257.952673us - 1761945895
+    delay_rel: 257.95267300028354us - 90895
+    width: 20us - 7047
+  target_fast_shutter:
+    name: Target fast shut
+    channel: OA6
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 4965000us - 1749522015
+    delay_rel: 0us - 0
+    width: 100ms - 35237100
+  Instru:
+    name: Instrumentation
+    channel: OB6
+    output_state: ON
+    burst_state: '1'
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 5000262.0us - 1761947321
+    delay_rel: 2.3299280013889074us - 820
+    width: 20us - 7047
+  Quantaray:
+    name: Quantaray
+    channel: OA3
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 5Hz - 70473664
+    delay: 136.22ns - 47
+    delay_rel: 136.22ns - 47
+    width: 50% - 35237100
+  Xh_Start:
+    name: Xh_Start
+    channel: OA5
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 4999144.92us - 1761553694
+    delay_rel: 0us - 0
+    width: 50us - 17618
+  early_instru:
+    name: Early_Instrum
+    channel: OB5
+    output_state: ON
+    burst_state: '1'
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 4999000.0us - 1761502629
+    delay_rel: 0us - 0
+    width: 20us - 7047
+  PCK_ISO_OFF:
+    name: Pck_iso_off
+    channel: OA4
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 80Hz - 4404604
+    delay: 300.383us - 105846
+    delay_rel: 0us - 0
+    width: 20us - 7047
+oscillo_ctrl:
+  Oscilloscopes:
+    tektro64_profile: 
+      /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/oscillos/tektro64_profile.dat
+    tektro54_profile: 
+      /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/oscillos/tektro54_profile.dat
+p100:
+  modbox_profile: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/p100/modbox_profile.dat
+  p100_tango:
+    att1:
+      Current_Transmission: 100
+      Set_Point_Transmission: 100
+    att2:
+      Current_Transmission: 100
+      Set_Point_Transmission: 100
+    intrepid:
+      Intracavity_Shutter_State: true
+      Phi25_Error: OK
+      Phi25_Flashlamp_Shotcount: 1826893
+      Phi25_Flashlamp_Voltage: 1730
+      Phi25_mode: READY
+      Phi5_Error: OK
+      Phi5_Flashlamp_Shotcount: 145937
+      Phi5_Flashlamp_Voltage: 1730
+      Phi5_mode: READY
+      Pockels_command: on
+    ampli:
+      BeamBlocker_Input_High: true
+      BeamBlocker_Input_Low: false
+      BeamBlocker_Ouput_High: true
+      BeamBlocker_Ouput_Low: false
+      Diode_Mount_Blocked: true
+      Diode_Mount_Injected: false
+      Energy_State: true
+      Errors: ''
+      Key1_On_Off: true
+      Key2_Maintenance_Normal: true
+      PowerSupply0_DAM_Voltage: 2400
+      PowerSupply0_Flash: true
+      PowerSupply0_Name: DAM1-3
+      PowerSupply0_Shot_count_Flashlamp: 32744
+      PowerSupply0_Simmer_Status: false
+      PowerSupply1_DAM_Voltage: 2400
+      PowerSupply1_Flash: true
+      PowerSupply1_Name: DAM2-4
+      PowerSupply1_Shot_count_Flashlamp: 205603
+      PowerSupply1_Simmer_Status: false
+      Sync_Modified_For_High_Energy: false
+      Sync_Modified_For_Low_Energy: false
+      Vertical_Translation_High: false
+      Vertical_Translation_Low: true
+      Wait_State_High: false
+      Wait_State_Low: false
+    modbox:
+      Booster: true
+      Seeder: true
+      Alarms: "\r"
+    synchro:
+      Delay_Phi25_Phi5_Measured: 37999
+      Flash_Phi25_Frequency_Measured: 100
+      Flash_Phi5_Frequency_Measured: 100
+      Frequency_Phi25_Nominal: 100
+      Frequency_Pockels_Phi5_Nominal: false
+      Max_Frequency_Presimmer_DAM: 111
+      Min_acceptable_delay: 400
+      Pockels_Frequency_Measured: 16
+      Presimmer_DAM_Frequency_Measured: 16
+      Tolerance_Frequency_Pockels: 10
+      Width_accepted_delay_window: 400
+  p100_city_channels:
+    D5:
+      name: D5
+      channel: OB1
+      output_state: ON
+      burst_state: OFF
+      gate_state: OFF
+      gate_src: I3
+      gate_src_state: OFF
+      freq: 0.1Hz - 3523683200
+      delay: 5000000.0us - 1761855000
+      delay_rel: 0us - 0
+      width: 20us - 7047
+    D25:
+      name: D25
+      channel: OB2
+      output_state: ON
+      burst_state: OFF
+      gate_state: OFF
+      gate_src: I3
+      gate_src_state: OFF
+      freq: 0.1Hz - 3523683200
+      delay: 4999630.0us - 1761724622
+      delay_rel: -370.0us - -130377
+      width: 20us - 7047
+    DAM:
+      name: DAM
+      channel: OB3
+      output_state: ON
+      burst_state: OFF
+      gate_state: OFF
+      gate_src: S1
+      gate_src_state: OFF
+      freq: 0.016Hz - 21142099200
+      delay: 4999720.0us - 1761756336
+      delay_rel: -280.0us - -98663
+      width: 50us - 17618
+    DAM_Presimmer:
+      name: DAM_Presimmer
+      channel: OB4
+      output_state: ON
+      burst_state: OFF
+      gate_state: OFF
+      gate_src: S1
+      gate_src_state: OFF
+      freq: 0.016Hz - 21142099200
+      delay: 0.0us - 0
+      delay_rel: -5000000.0us - -1761855000
+      width: 50000us - 17618550
+    ModBox:
+      name: ModBox
+      channel: OA1
+      output_state: ON
+      burst_state: OFF
+      gate_state: OFF
+      gate_src: I3
+      gate_src_state: OFF
+      freq: 0.1Hz - 3523683200
+      delay: 5000259.670071999us - 1761946500
+      delay_rel: 259.6700719986111us - 91500
+      width: 20us - 7047
+    Pockels:
+      name: Pockels
+      channel: OA2
+      output_state: ON
+      burst_state: '1'
+      gate_state: OFF
+      gate_src: S1
+      gate_src_state: OFF
+      freq: 0.016Hz - 21142099200
+      delay: 5000257.952673us - 1761945895
+      delay_rel: 257.95267300028354us - 90895
+      width: 20us - 7047
+  p100_cameras:
+    ccd_ff_amp:
+      EnergyCentroid_X: 361.40977078592283
+      EnergyCentroid_Y: 361.40977078592283
+      ff_amplifier: 
+        /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/p100/ff_amplifier.png
+    ccd_ff_fe:
+      EnergyCentroid_X: 282.7636441884858
+      EnergyCentroid_Y: 282.7636441884858
+      ff_out_frontend_intrepid: 
+        /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/p100/ff_out_frontend_intrepid.png
+    ccd_nf_amp:
+      EnergyCentroid_X: 323.0699107695986
+      EnergyCentroid_Y: 323.0699107695986
+      nf_amplifier: 
+        /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/p100/nf_amplifier.png
+    ccd_nf_fe:
+      EnergyCentroid_X: 345.621356106004
+      EnergyCentroid_Y: 345.621356106004
+      nf_out_frontend_intrepid: 
+        /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/p100/nf_out_frontend_intrepid.png
+    ccd_nf_regen:
+      EnergyCentroid_X: 363.57168040066733
+      EnergyCentroid_Y: 363.57168040066733
+      nf_regen_intrepid: 
+        /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/p100/nf_regen_intrepid.png
+transport:
+  Energy Meter:
+    enmeter_eh1:
+      energy: 52.092139 J
+      energy_raw: 0.0073942 J
+      convertion Factor: 7045.0
+      convertion Factor date: '2024-07-12 17:56:12.950051'
+    slink1:
+      energy: 12.6394211 J
+      energy_raw: 0.02579 J
+      convertion Factor: 490.09
+      convertion Factor date: '2024-07-12 12:00:34.633749'
+ic:
+  phase_plate: None
+  Sample Holder Temp.: 27.6 °C
+streak:
+  sop.tif: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/streak/sop.tif
+  visar1.tif: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/streak/visar1.tif
+  visar2.tif: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/streak/visar2.tif
+bas_nf:
+  Detector name: bas_nf
+  Time units: s
+  I time: 0.001
+  bas_nf: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/cameras/bas_nf.png
+bas_ff:
+  Detector name: bas_ff
+  Time units: s
+  I time: 0.001
+  bas_ff: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0206_laser_only_2024_07_16_17_35_30/run_0206_laser_only_2024_07_16_17_35_30_run_0206_laser_only_2024_07_16_17_35_30/cameras/bas_ff.png
+description:
+  definition: Al1/PN41/Al1/PN41
+  delay(ns): 0
+  energy(J): 50

@@ -1,0 +1,162 @@
+city_ctrl:
+  D5:
+    name: D5
+    channel: OB1
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.1Hz - 3523683200
+    delay: 5000000.0us - 1761855000
+    delay_rel: 0us - 0
+    width: 20us - 7047
+  D25:
+    name: D25
+    channel: OB2
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.1Hz - 3523683200
+    delay: 4999630.0us - 1761724622
+    delay_rel: -370.0us - -130377
+    width: 20us - 7047
+  DAM:
+    name: DAM
+    channel: OB3
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 4999720.0us - 1761756336
+    delay_rel: -280.0us - -98663
+    width: 50us - 17618
+  DAM_Presimmer:
+    name: DAM_Presimmer
+    channel: OB4
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 0.0us - 0
+    delay_rel: -5000000.0us - -1761855000
+    width: 50000us - 17618550
+  ModBox:
+    name: ModBox
+    channel: OA1
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.1Hz - 3523683200
+    delay: 5000259.670071999us - 1761946500
+    delay_rel: 259.6700719986111us - 91500
+    width: 20us - 7047
+  Pockels:
+    name: Pockels
+    channel: OA2
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: S2
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 5000257.952673us - 1761945895
+    delay_rel: 257.95267300028354us - 90895
+    width: 20us - 7047
+  target_fast_shutter:
+    name: Target fast shut
+    channel: OA6
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 4965000us - 1749522015
+    delay_rel: 0us - 0
+    width: 100ms - 35237100
+  Instru:
+    name: Instrumentation
+    channel: OB6
+    output_state: ON
+    burst_state: '1'
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 5000262.0us - 1761947321
+    delay_rel: 2.3299280013889074us - 820
+    width: 20us - 7047
+  Quantaray:
+    name: Quantaray
+    channel: OA3
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 5Hz - 70473664
+    delay: 136.22ns - 47
+    delay_rel: 136.22ns - 47
+    width: 50% - 35237100
+  Xh_Start:
+    name: Xh_Start
+    channel: OA5
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 4999144.92us - 1761553694
+    delay_rel: 0us - 0
+    width: 50us - 17618
+  early_instru:
+    name: Early_Instrum
+    channel: OB5
+    output_state: ON
+    burst_state: '1'
+    gate_state: OFF
+    gate_src: S1
+    gate_src_state: OFF
+    freq: 0.016Hz - 21142099200
+    delay: 4999000.0us - 1761502629
+    delay_rel: 0us - 0
+    width: 20us - 7047
+  PCK_ISO_OFF:
+    name: Pck_iso_off
+    channel: OA4
+    output_state: ON
+    burst_state: OFF
+    gate_state: OFF
+    gate_src: I3
+    gate_src_state: OFF
+    freq: 80Hz - 4404604
+    delay: 300.383us - 105846
+    delay_rel: 0us - 0
+    width: 20us - 7047
+oscillo_ctrl:
+  Oscilloscopes:
+    tektro64_profile: 
+      /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0205_streak_ref_2024_07_16_17_33_07/run_0205_streak_ref_2024_07_16_17_33_07_run_0205_streak_ref_2024_07_16_17_33_07/oscillos/tektro64_profile.dat
+    tektro54_profile: 
+      /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0205_streak_ref_2024_07_16_17_33_07/run_0205_streak_ref_2024_07_16_17_33_07_run_0205_streak_ref_2024_07_16_17_33_07/oscillos/tektro54_profile.dat
+streak:
+  sop.tif: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0205_streak_ref_2024_07_16_17_33_07/run_0205_streak_ref_2024_07_16_17_33_07_run_0205_streak_ref_2024_07_16_17_33_07/streak/sop.tif
+  visar1.tif: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0205_streak_ref_2024_07_16_17_33_07/run_0205_streak_ref_2024_07_16_17_33_07_run_0205_streak_ref_2024_07_16_17_33_07/streak/visar1.tif
+  visar2.tif: 
+    /data/visitor/blc15548/id24/20240715/RAW_DATA/run_0205_streak_ref_2024_07_16_17_33_07/run_0205_streak_ref_2024_07_16_17_33_07_run_0205_streak_ref_2024_07_16_17_33_07/streak/visar2.tif
+description:
+  definition: Al1/PN41/Al1/PN41
+  delay(ns): 0
+  energy(J): 50
