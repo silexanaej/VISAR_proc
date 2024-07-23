@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=44"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "visar_proc"
+version = "0.0.1"
+authors = [{name="Jean-Alexis Hernandez", email="jean-alexis.hernandez@esrf.fr"}]
+dependencies = [
+  "scipy",
+  "pillow",
+  "numpy",
+  "matplotlib"   
+]
+requires-python = ">=3.8,<4"
+description = "Program to process line VISAR and SOP data."
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["visar", "velocimetry", "dynamic compression"]
+classifiers = [
+  "Programming Language :: Python"
+]
