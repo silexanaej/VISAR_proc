@@ -10,7 +10,9 @@ dependencies = [
   "scipy",
   "pillow",
   "numpy",
-  "matplotlib"   
+  "matplotlib"  ,
+  "ipympl",
+   "regex"
 ]
 requires-python = ">=3.8,<4"
 description = "Program to process line VISAR and SOP data."
