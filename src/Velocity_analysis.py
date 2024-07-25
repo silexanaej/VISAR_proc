@@ -206,48 +206,8 @@ class CuZrAlglass():
             Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
             return Up
 
-# class MgSiO3glass():
-#     # Linear fit LULI + gas gun data
-#     def __init__(self):
-#         self.name = 'MgSiO3glass'
-#         self.rho0 = 2.74
-#         self.P0 = 0
-#         self.UsUp_coefs = np.array([1.435, 3.649])
-#         self.UsUp_cov = np.array([[0, 0], [0, 0]])
-#         self.Vp0 = 3.5  # km/s
-#         self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
-#     def Us_from_Up(self, Up):
-#         return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
-#     def Up_from_Us(self, Us):
-#         Up = np.copy(Us)
-#         Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
-#         return Up
-    
-# class MgSiO3glass():
-#     # Polynomial fit LULI + gas gun data
-#     def __init__(self):
-#         self.name = 'MgSiO3glass'
-#         self.rho0 = 2.74
-#         self.P0 = 0
-#         self.UsUp_coefs = np.array([-0.01168809,  1.57239353,  3.327756])
-#         self.UsUp_cov = np.array([[ 1.65733958e-05, -1.63775742e-04,  3.17001611e-04],
-#                 [-1.63775742e-04,  1.87492004e-03, -4.06477677e-03],
-#                 [ 3.17001611e-04, -4.06477677e-03,  1.03689741e-02]])
-#         self.Vp0 = 3.5  # km/s
-#         self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
-#     def Us_from_Up(self, Up):
-#         return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
-#     def Up_from_Us(self, Us):
-#         Up = np.copy(Us)
-#         a = (np.copy(Us)*0+1)*self.UsUp_coefs[0]
-#         b = (np.copy(Us)*0+1)*self.UsUp_coefs[1]
-#         c = (np.copy(Us)*0+1)*self.UsUp_coefs[2]
-#         delta = b**2 - 4*a*(c-Us)
-#         Up = (-b + np.sqrt(delta))/(2*a)
-#         return Up
-
 class MgSiO3glass():
-    # Polynomial fit Militzer + gas gun data
+    # Polynomial fit Militzer (2013) + gas gun data
     def __init__(self):
         self.name = 'MgSiO3glass'
         self.rho0 = 2.74
@@ -278,40 +238,6 @@ class MgSiO3enstatite():
         self.UsUp_coefs = np.array([1.37, 4.75])
         self.UsUp_cov = np.array([[0, 0], [0, 0]])
         self.Vp0 = 5.78  # km/s, estimated
-        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
-    def Us_from_Up(self, Up):
-        return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
-    def Up_from_Us(self, Us):
-        Up = np.copy(Us)
-        Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
-        return Up
-    
-class SCOlivine():
-    # perso
-    def __init__(self):
-        self.name = 'SCOlivine'
-        self.rho0 = 3.35
-        self.P0 = 0
-        self.UsUp_coefs = np.array([1.656, 4.17])
-        self.UsUp_cov = np.array([[0, 0], [0, 0]])
-        self.Vp0 = 8.5  # km/s
-        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
-    def Us_from_Up(self, Up):
-        return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
-    def Up_from_Us(self, Us):
-        Up = np.copy(Us)
-        Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
-        return Up
-
-class MaliGarnet():
-    # Linear fit LULI + gas gun data
-    def __init__(self):
-        self.name = 'MaliGarnet'
-        self.rho0 = 3.834
-        self.P0 = 0
-        self.UsUp_coefs = np.array([1.432, 5.632])
-        self.UsUp_cov = np.array([[0, 0], [0, 0]])
-        self.Vp0 = 9.0  # km/s, average
         self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
     def Us_from_Up(self, Up):
         return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
