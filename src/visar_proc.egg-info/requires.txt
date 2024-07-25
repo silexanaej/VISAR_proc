@@ -2,3 +2,5 @@ scipy
 pillow
 numpy
 matplotlib
+ipympl
+regex

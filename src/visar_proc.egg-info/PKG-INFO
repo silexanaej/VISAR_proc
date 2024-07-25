@@ -687,6 +687,8 @@ Requires-Dist: scipy
 Requires-Dist: pillow
 Requires-Dist: numpy
 Requires-Dist: matplotlib
+Requires-Dist: ipympl
+Requires-Dist: regex
 
 # VISAR_proc
 Tools to process line VISAR images
