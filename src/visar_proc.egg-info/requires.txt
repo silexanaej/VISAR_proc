@@ -4,3 +4,4 @@ numpy
 matplotlib
 ipympl
 regex
+scikit-image
