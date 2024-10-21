@@ -208,21 +208,24 @@ def get_HM_poly(name, window):
             '5ns':np.array([5.580e00, -7.286e-04, 3.412e-07, -8.646e-10])*1e-3,
             '10ns':np.array([9.032e00, 3.519e-03, -1.154e-05, 7.029e-09])*1e-3,
             '20ns':np.array([1.673e-02, 1.447e-05, -1.715e-08, 8.393e-12]),
-            '50ns':np.array([5.595e01, -1.635e-02, 1.763e-05, -6.324e-09])*1e-3
+            '50ns':np.array([5.595e01, -1.635e-02, 1.763e-05, -6.324e-09])*1e-3,
+            '100ns':np.array([9.471e01, 5.057e-03, -1.845e-06, 1.653e-09])*1e-3
             }
     # time calibration coefficients for S2
     S2_poly_t = {
             '5ns':np.array([5.402e00, -3.773e-04, 3.667e-09, -7.660e-10])*1e-3,
             '10ns':np.array([1.100e01, 3.115e-03, -5.205e-06, 1.931e-09])*1e-3,
             '20ns':np.array([1.677e-02, 4.554e-06, 8.857e-10, -1.642e-12]),
-            '50ns':np.array([5.083e01, -9.930e-03, 9.126e-06, -1.869e-09])*1e-3
+            '50ns':np.array([5.083e01, -9.930e-03, 9.126e-06, -1.869e-09])*1e-3,
+            '100ns':np.array([9.420e01, 3.780e-03, 7.927e-06, -4.947e-09])*1e-3
             }
     # time calibration coefficients for S3
     S3_poly_t = {
             '5ns':np.array([5.400e00, -2.307e-03, 1.402e-06, 0.0])*1e-3,
             '10ns':np.array([1.051e01, -3.098e-03, 1.575e-06, 0.0])*1e-3,
             '20ns':np.array([1.751e01, 1.308e-03, 4.591e-07, 0.0])*1e-3,
-            '50ns':np.array([5.000e01, -6.802e-03, 5.751e-06, 0.0])*1e-3
+            '50ns':np.array([5.000e01, -6.802e-03, 5.751e-06, 0.0])*1e-3,
+            '100ns':np.array([9.224e01, -3.003e-02, 4.019e-05, 0.0])*1e-3
             }
     # top level dictionary with streak names as keys
     poly_t = {'S1': S1_poly_t, 'S2':S2_poly_t, 'S3':S3_poly_t}
