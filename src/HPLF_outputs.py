@@ -91,7 +91,7 @@ class HPLF_outputs():
             # tektro54
             [self.tektro54_t, self.tektro54_profile] = np.loadtxt(self.tektro54_fi, usecols=(0,3), comments='#', unpack=True)
             # tektro64
-            [self.tektro64_t, self.tektro64_profile] = np.loadtxt(self.tektro64_fi, usecols=(0,3), comments='#', unpack=True)
+            [self.tektro64_t, self.tektro64_profile] = np.loadtxt(self.tektro64_fi, usecols=(0,2), comments='#', unpack=True)
 
     def read_drive_images(self):
         if self.sequence in ['laser_only', 'shock']:
