@@ -125,7 +125,12 @@ class HPLF_visar():
         plt.show()
         
 
-    def FFT_process(self, filter_bounds):
+    def FFT_process(self, filter_bounds, sigma_blur=0):
+        # Applying potential gaussian blur
+        from scipy.ndimage import gaussian_filter
+        self.refimage.im = gaussian_filter(self.refimage.im, sigma=sigma_blur)
+        self.shotimage.im = gaussian_filter(self.shotimage.im, sigma=sigma_blur)
+        # filtering initialization
         [self.filter_freq_min, self.filter_freq_max] = filter_bounds
         # Compute forward FT
         self.refFT = sc_fft.fft2(self.refimage.im, axes=(1))
