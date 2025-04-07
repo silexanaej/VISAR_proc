@@ -75,6 +75,44 @@ class LiF():
         Up = np.copy(Us)
         Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
         return Up
+    
+class Al2O3():
+    # Sapphire Hugoniot from McCoy et al., PRB (2023)
+    def __init__(self):
+        self.name = 'Al2O3'
+        self.rho0 = 3.978
+        self.n0_532 = 1.772
+        self.P0 = 0
+        self.Vp0 = 10.89
+        self.Up_transition_12 = 1.881 # km/s
+        self.Up_transition_23 = 5.065
+        self.Up_transition_34 = 7.639
+        self.UsUp_coefs_1 = np.array([1.003, 8.667])
+        self.UsUp_cov_1 = np.array([[18.03e-3, -12.75e-3], [-12.75e-3, 106.7e-4]])
+        self.UsUp_coefs_2 = np.array([0.920, 8.817])
+        self.UsUp_cov_2 = np.array([[11.46e-3, -2.917e-3], [-2.917e-3, 7.976e-4]])
+        self.UsUp_coefs_3 = np.array([1.372, 6.585])
+        self.UsUp_cov_3 = np.array([[43.32e-3, -6.684e-3], [-6.684e-3, 10.41e-4]])
+        self.UsUp_coefs_4 = np.array([1.163, 8.621])
+        self.UsUp_cov_4 = np.array([[4.123e-3, -0.3382e-3], [-0.3382e-3, 0.2887e-4]])
+        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
+    def Us_from_Up(self, Up):
+        Us = np.copy(Up)
+        Us[Up < self.Up_transition_12] = Us_from_Up_polynomial(Up[Up < self.Up_transition_12], self.UsUp_coefs_1, self.UsUp_cov_1)
+        Us[(Up >= self.Up_transition_12) & (Up < self.Up_transition_23)] = Us_from_Up_polynomial(Up[(Up >= self.Up_transition_12) & (Up < self.Up_transition_23)], self.UsUp_coefs_2, self.UsUp_cov_2)
+        Us[(Up >= self.Up_transition_23) & (Up < self.Up_transition_34)] = Us_from_Up_polynomial(Up[(Up >= self.Up_transition_34) & (Up < self.Up_transition_23)], self.UsUp_coefs_3, self.UsUp_cov_3)
+        Us[Up >= self.Up_transition_34] = Us_from_Up_polynomial(Up[Up >= self.Up_transition_34], self.UsUp_coefs_4, self.UsUp_cov_4)
+        return Us
+    def Up_from_Us(self, Us):
+        Up = np.copy(Us)
+        self.Us_transition_12 = Us_from_Up_polynomial(self.Up_transition_12, self.UsUp_coefs_2, self.UsUp_cov_2)
+        self.Us_transition_23 = Us_from_Up_polynomial(self.Up_transition_23, self.UsUp_coefs_3, self.UsUp_cov_3)
+        self.Us_transition_34 = Us_from_Up_polynomial(self.Up_transition_34, self.UsUp_coefs_4, self.UsUp_cov_4)
+        Up[Us < self.Us_transition_12] = (Us -  self.UsUp_coefs_1[1]) / self.UsUp_coefs_1[0]
+        Up[(Us >= self.Us_transition_12) & (Us < self.Us_transition_23)] = (Us -  self.UsUp_coefs_2[1]) / self.UsUp_coefs_2[0]
+        Up[(Us >= self.Us_transition_23) & (Us < self.Us_transition_34)] = (Us -  self.UsUp_coefs_3[1]) / self.UsUp_coefs_3[0]
+        Up[Us >= self.Us_transition_34] = (Us -  self.UsUp_coefs_4[1]) / self.UsUp_coefs_4[0]
+        return Up
 
 class BKapton():
     # Black Kapton properties from Katagiri et al., PRB 2022
@@ -188,23 +226,6 @@ class Molybdenum():
             Up = np.copy(Us)
             Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
             return Up
-    
-class CuZrAlglass():
-    # From Marsh 1980
-    def __init__(self):
-        self.name = 'CuZrAlglass'
-        self.rho0 = 6.91
-        self.P0 = 0
-        self.UsUp_coefs = np.array([0.7244, 5.0583])
-        self.UsUp_cov = np.array([[0, 0], [0, 0]])
-        self.Vp0 = 4.95  # km/s
-        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
-    def Us_from_Up(self, Up):
-            return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
-    def Up_from_Us(self, Us):
-            Up = np.copy(Us)
-            Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
-            return Up
 
 class MgSiO3glass():
     # Polynomial fit Militzer (2013) + gas gun data
@@ -272,57 +293,6 @@ class Iron():
         self.UsUp_coefs = np.array([1.609, 3.892])
         self.UsUp_cov = np.array([[0, 0], [0, 0]])
         self.Vp0 = 5.9  # km/s
-        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
-    def Us_from_Up(self, Up):
-        return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
-    def Up_from_Us(self, Us):
-        Up = np.copy(Us)
-        Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
-        return Up
-    
-class Fe08O02():
-    # Mixture Hugoniot between Fe and FeO
-    def __init__(self):
-        self.name = 'Fe08O02'
-        self.rho0 = 0.238*FeO.rho0 + (1-0.238)*Iron.rho0
-        self.P0 = 0
-        self.UsUp_coefs = np.array([1.557, 4.015])
-        self.UsUp_cov = np.array([[0, 0], [0, 0]])
-        self.Vp0 = 5.9  # km/s, iron one
-        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
-    def Us_from_Up(self, Up):
-        return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
-    def Up_from_Us(self, Us):
-        Up = np.copy(Us)
-        Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
-        return Up
-    
-class Fe07O03():
-    # Mixture Hugoniot between Fe and FeO
-    def __init__(self):
-        self.name = 'Fe07O03'
-        self.rho0 = 0.5*FeO.rho0 + (1-0.5)*Iron.rho0
-        self.P0 = 0
-        self.UsUp_coefs = np.array([1.524, 4.092])
-        self.UsUp_cov = np.array([[0, 0], [0, 0]])
-        self.Vp0 = 5.9  # km/s, iron one
-        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
-    def Us_from_Up(self, Up):
-        return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
-    def Up_from_Us(self, Us):
-        Up = np.copy(Us)
-        Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
-        return Up
-    
-class Fe06O04():
-    # Mixture Hugoniot between Fe and FeO
-    def __init__(self):
-        self.name = 'Fe06O04'
-        self.rho0 = 0.72*FeO.rho0 + (1-0.72)*Iron.rho0
-        self.P0 = 0
-        self.UsUp_coefs = np.array([1.490, 4.173])
-        self.UsUp_cov = np.array([[0, 0], [0, 0]])
-        self.Vp0 = 5.9  # km/s, iron one
         self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
     def Us_from_Up(self, Up):
         return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)

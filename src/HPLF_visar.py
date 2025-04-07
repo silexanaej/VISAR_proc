@@ -30,7 +30,7 @@ class HPLF_visar():
             self.etalon_n = dict_etalon['refr_index']
             self.etalon_dndl = dict_etalon['dn_dl']
             self.etalon_thickness = dict_etalon['thickness'] # in m
-            # Compute VPF from HPLF VISARs geometry
+            # Compute VPF from HPLF VISARs geometry -- this should not be here
             self.height = 4.8e-2 # m
             self.width = 22.5e-2 # m
             self.deltaWL = 0 # white light calibration error
@@ -102,20 +102,6 @@ class HPLF_visar():
             self.shotimage.im = self.shotimage_deghosted
         # Plot
         fig = plt.figure(figsize=(5, 4))
-        # ax1 = fig.add_subplot(131)
-        # ax1.set_xlabel(r'Time frequency (/pixel)')
-        # ax1.set_ylabel(r'Space frequency (/pixel)')
-        # ax1.set_title(r'2D FFT')
-        # ax1.pcolormesh(np.roll(self.degh_shotfreqtimeFT_grid, int(len(self.degh_time)/2.), axis=0), np.roll(self.degh_shotfreqspaceFT_grid, int(len(self.degh_space)/2.), axis=1), degh_shotFT_plot, cmap='binary', norm=LogNorm())
-        # ax1.set_ylim(-0.05, 0.05)
-        # ax1.set_xlim(-0.05, 0.05)
-        # ax2 = fig.add_subplot(132)
-        # ax2.set_xlabel(r'Time frequency (/pixel)')
-        # ax2.set_ylabel(r'Space frequency (/pixel)')
-        # ax2.set_title(r'2D FFT filtered')
-        # ax2.pcolormesh(np.roll(self.degh_shotfreqtimeFT_grid, int(len(self.degh_time)/2.), axis=0), np.roll(self.degh_shotfreqspaceFT_grid, int(len(self.degh_space)/2.), axis=1), degh_shotFT_filtered_plot, cmap='binary', norm=LogNorm())
-        # ax2.set_ylim(-0.05, 0.05)
-        # ax2.set_xlim(-0.05, 0.05)
         ax1 = fig.add_subplot(111)
         ax1.set_xlabel(r'Time (ns)')
         ax1.set_ylabel(r'Space ($\mu$m)')
@@ -335,8 +321,6 @@ class HPLF_visar():
             self.R_time = self.R_time[idx_start:idx_end+1]
             return [self.R_time, self.R_shock_front, self.R_app_av, self.R_app_std]
 
-        
-        
     def Export_velocity_trace(self, outdir, prefixe, visar_nb, ext='.txt'):
         path = outdir + os.sep + prefixe + ext
         fi = open(path, 'w')
@@ -360,7 +344,6 @@ class HPLF_visar():
         for ii in range(0, len(self.vel_time)):
             fi.write(f'{self.vel_time[ii]:.4E} {self.velocity_av[ii]:.4E} {self.velocity_std[ii]:.4E}\n')
         fi.close()
-
 
 # Functions
 def update_streak_im_ROI(streak_im_obj, ROI):
