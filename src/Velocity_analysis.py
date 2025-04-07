@@ -279,6 +279,57 @@ class Iron():
         Up = np.copy(Us)
         Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
         return Up
+    
+class Fe08O02():
+    # Mixture Hugoniot between Fe and FeO
+    def __init__(self):
+        self.name = 'Fe08O02'
+        self.rho0 = 0.238*FeO.rho0 + (1-0.238)*Iron.rho0
+        self.P0 = 0
+        self.UsUp_coefs = np.array([1.557, 4.015])
+        self.UsUp_cov = np.array([[0, 0], [0, 0]])
+        self.Vp0 = 5.9  # km/s, iron one
+        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
+    def Us_from_Up(self, Up):
+        return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
+    def Up_from_Us(self, Us):
+        Up = np.copy(Us)
+        Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
+        return Up
+    
+class Fe07O03():
+    # Mixture Hugoniot between Fe and FeO
+    def __init__(self):
+        self.name = 'Fe07O03'
+        self.rho0 = 0.5*FeO.rho0 + (1-0.5)*Iron.rho0
+        self.P0 = 0
+        self.UsUp_coefs = np.array([1.524, 4.092])
+        self.UsUp_cov = np.array([[0, 0], [0, 0]])
+        self.Vp0 = 5.9  # km/s, iron one
+        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
+    def Us_from_Up(self, Up):
+        return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
+    def Up_from_Us(self, Us):
+        Up = np.copy(Us)
+        Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
+        return Up
+    
+class Fe06O04():
+    # Mixture Hugoniot between Fe and FeO
+    def __init__(self):
+        self.name = 'Fe06O04'
+        self.rho0 = 0.72*FeO.rho0 + (1-0.72)*Iron.rho0
+        self.P0 = 0
+        self.UsUp_coefs = np.array([1.490, 4.173])
+        self.UsUp_cov = np.array([[0, 0], [0, 0]])
+        self.Vp0 = 5.9  # km/s, iron one
+        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
+    def Us_from_Up(self, Up):
+        return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
+    def Up_from_Us(self, Us):
+        Up = np.copy(Us)
+        Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
+        return Up
 
 class Iridium():
     # Rough linear fit of iridium Hugoniot

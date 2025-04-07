@@ -282,6 +282,7 @@ class HPLF_outputs():
         ax2.set_xlim(xlim)
         ax2.set_ylim(ylim2)
         fig.tight_layout()
+        self.XAS_image = fig
         plt.show()
 
     def export_XAS(self, pathout):

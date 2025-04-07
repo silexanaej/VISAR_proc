@@ -1,6 +1,7 @@
 LICENSE
 README.md
 pyproject.toml
+src/HED_outputs.py
 src/HPLF_outputs.py
 src/HPLF_streaks.py
 src/HPLF_visar.py
