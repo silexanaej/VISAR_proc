@@ -41,7 +41,7 @@ class HPLF_visar():
         else:
             self.ROI = ROI       
 
-    def calc_vpf(self, wavelength, sign, etalon_n, etalon_dndl, etalon_thickness, visar_height, visar_width, deltaWL=0):
+    def calc_vpf(wavelength, sign, etalon_n, etalon_dndl, etalon_thickness, visar_height, visar_width, deltaWL=0):
         tau_0 = 2*etalon_thickness/c*(etalon_n-1)/etalon_n
         delta = - etalon_dndl*wavelength*etalon_n/(etalon_n**2 -1)
         gamma = np.arctan(visar_height/visar_width)
