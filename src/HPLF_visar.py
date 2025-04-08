@@ -34,19 +34,24 @@ class HPLF_visar():
             self.height = 4.8e-2 # m
             self.width = 22.5e-2 # m
             self.deltaWL = 0 # white light calibration error
-            self.tau_0 = 2*self.etalon_thickness/c*(self.etalon_n-1)/self.etalon_n
-            self.delta = - self.etalon_dndl*self.wavelength*self.etalon_n/(self.etalon_n**2 -1)
-            self.gamma = np.arctan(self.height/self.width)
-            self.gamma_n = np.arcsin(np.sin(self.gamma)/self.etalon_n)
-            self.d = self.etalon_thickness*(1-np.tan(self.gamma_n)/np.tan(self.gamma))
-            self.OPL = 2*( self.deltaWL + self.etalon_n*self.etalon_thickness/np.cos(self.gamma_n) + (self.height - self.etalon_thickness*np.tan(self.gamma_n))/np.sin(self.gamma) - self.height/np.sin(self.gamma) )
-            self.tau = self.OPL/c
-            self.VPF = self.sign*self.wavelength/(2*(1+self.delta)*self.tau)*1e-3 # in km/s
-            print(f'Calculated VPF: {self.VPF} km/s')
+            [self.VPF, self.tau_0, self.delta, self.gamma, self.gamma_n, self.d, self.OPL, self.tau] = self.calc_vpf(self, wavelength, self.sign, self.etalon_n, self.etalon_dndl, self.etalon_thickness, self.height, self.width, self.deltaWL)
+
         if ROI==None:
             self.ROI = [(np.min(self.shotimage.space), np.max(self.shotimage.space)), (np.min(self.shotimage.time), np.max(self.shotimage.time))]
         else:
-            self.ROI = ROI        
+            self.ROI = ROI       
+
+    def calc_vpf(self, wavelength, sign, etalon_n, etalon_dndl, etalon_thickness, visar_height, visar_width, deltaWL=0):
+        tau_0 = 2*etalon_thickness/c*(etalon_n-1)/etalon_n
+        delta = - etalon_dndl*wavelength*etalon_n/(etalon_n**2 -1)
+        gamma = np.arctan(visar_height/visar_width)
+        gamma_n = np.arcsin(np.sin(gamma)/etalon_n)
+        d = etalon_thickness*(1-np.tan(gamma_n)/np.tan(gamma))
+        OPL = 2*( deltaWL + etalon_n*etalon_thickness/np.cos(gamma_n) + (visar_height - etalon_thickness*np.tan(gamma_n))/np.sin(gamma) - visar_height/np.sin(gamma) )
+        tau = OPL/c
+        VPF = sign*wavelength/(2*(1+delta)*tau)*1e-3 # in km/s
+        print(f'Calculated VPF: {VPF} km/s')
+        return [VPF, tau_0, delta, gamma, gamma_n, d, OPL, tau]
     
     def apply_ROI(self):
         update_streak_im_ROI(self.refimage, self.ROI)
