@@ -34,7 +34,7 @@ class HPLF_visar():
             self.height = 4.8e-2 # m
             self.width = 22.5e-2 # m
             self.deltaWL = 0 # white light calibration error
-            [self.VPF, self.tau_0, self.delta, self.gamma, self.gamma_n, self.d, self.OPL, self.tau] = self.calc_vpf(self, self.wavelength, self.sign, self.etalon_n, self.etalon_dndl, self.etalon_thickness, self.height, self.width, self.deltaWL)
+            [self.VPF, self.tau_0, self.delta, self.gamma, self.gamma_n, self.d, self.OPL, self.tau] = self.calc_vpf(self.wavelength, self.sign, self.etalon_n, self.etalon_dndl, self.etalon_thickness, self.height, self.width, self.deltaWL)
 
         if ROI==None:
             self.ROI = [(np.min(self.shotimage.space), np.max(self.shotimage.space)), (np.min(self.shotimage.time), np.max(self.shotimage.time))]

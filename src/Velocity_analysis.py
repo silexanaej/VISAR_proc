@@ -154,6 +154,23 @@ class Cobalt():
             Up = np.copy(Us)
             Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
             return Up
+    
+class Tungsten():
+    def __init__(self):
+        # W Hugoniot from Jin Gang
+        self.name = 'Tungsten'
+        self.rho0 = 19.3
+        self.P0 = 0
+        self.UsUp_coefs = np.array([1.21, 4.049])
+        self.UsUp_cov = np.array([[0, 0], [0, 0]])
+        self.Vp0 = 5.2  # km/s
+        self.shock_impedance = self.Vp0*self.rho0  # at ambient only (self.Us*self.rho0 otherwise)
+    def Us_from_Up(self, Up):
+            return Us_from_Up_polynomial(Up, self.UsUp_coefs, self.UsUp_cov)
+    def Up_from_Us(self, Us):
+            Up = np.copy(Us)
+            Up = (Us -  self.UsUp_coefs[1]) / self.UsUp_coefs[0]
+            return Up
 
 class Nickel():
     # From Marsh 1980
