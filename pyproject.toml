@@ -14,7 +14,8 @@ dependencies = [
   "ipympl",
    "regex",
    "scikit-image",
-   "h5py"
+   "h5py",
+   "ipykernel"
 ]
 requires-python = ">=3.8,<4"
 description = "Program to process line VISAR and SOP data."
