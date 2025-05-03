@@ -13,7 +13,8 @@ dependencies = [
   "matplotlib"  ,
   "ipympl",
    "regex",
-   "scikit-image"
+   "scikit-image",
+   "h5py"
 ]
 requires-python = ">=3.8,<4"
 description = "Program to process line VISAR and SOP data."
