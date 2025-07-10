@@ -5,3 +5,5 @@ matplotlib
 ipympl
 regex
 scikit-image
+h5py
+ipykernel
