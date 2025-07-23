@@ -86,12 +86,12 @@ class HPLF_outputs():
             temp = grep('phase_plate', self.metadata_fi)
             self.phase_plate = ' '.join(temp.split()[1:])
 
-    def read_oscillos(self):
+    def read_oscillos(self, channel=3):
         if self.sequence in ['laser_only', 'shock']:
             # tektro54
-            [self.tektro54_t, self.tektro54_profile] = np.loadtxt(self.tektro54_fi, usecols=(0,3), comments='#', unpack=True)
+            [self.tektro54_t, self.tektro54_profile] = np.loadtxt(self.tektro54_fi, usecols=(0,channel), comments='#', unpack=True)
             # tektro64
-            [self.tektro64_t, self.tektro64_profile] = np.loadtxt(self.tektro64_fi, usecols=(0,3), comments='#', unpack=True)
+            [self.tektro64_t, self.tektro64_profile] = np.loadtxt(self.tektro64_fi, usecols=(0,channel), comments='#', unpack=True)
 
     def read_drive_images(self):
         if self.sequence in ['laser_only', 'shock']:
@@ -99,10 +99,10 @@ class HPLF_outputs():
             self.nf_eh1_im = plt.imread(self.nf_eh1_fi)
             self.ff_eh1_im = plt.imread(self.ff_eh1_fi)
 
-    def plot_drive_profile_eh1(self, delay_oscillo=300, win_oscillo=50):
+    def plot_drive_profile_eh1(self, delay_oscillo=300, win_oscillo=50, channel=3):
         if self.sequence in ['laser_only', 'shock']:
             # Read oscillo profiles
-            self.read_oscillos()
+            self.read_oscillos(channel=3)
             # Read NF and FF EH1 images
             self.read_drive_images()
             # Summary figure for drive
