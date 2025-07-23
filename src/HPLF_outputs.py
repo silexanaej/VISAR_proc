@@ -102,7 +102,7 @@ class HPLF_outputs():
     def plot_drive_profile_eh1(self, delay_oscillo=300, win_oscillo=50, channel=3):
         if self.sequence in ['laser_only', 'shock']:
             # Read oscillo profiles
-            self.read_oscillos(channel=3)
+            self.read_oscillos(channel=channel)
             # Read NF and FF EH1 images
             self.read_drive_images()
             # Summary figure for drive
